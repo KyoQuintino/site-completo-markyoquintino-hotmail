@@ -149,7 +149,7 @@ const products = [
     image: `${STORAGE}saia-do-caixao-cover_638e7a05.svg`,
     imageClass: "portrait",
     panel: "dark-sage",
-    href: "https://pay.hotmart.com/S107541237F",
+    href: "https://go.hotmart.com/S107541237F",
     message:
       "Olá! Quero saber mais sobre o e-book “Sai do Caixão”. Vi na DigitalQuintino e gostaria de receber ajuda para finalizar meu pedido.",
   },
