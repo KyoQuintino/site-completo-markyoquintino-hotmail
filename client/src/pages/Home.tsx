@@ -8,6 +8,7 @@ import {
   Mail,
   Menu,
   MessageCircle,
+  Search,
   ShieldCheck,
   Smartphone,
   Sparkles,
@@ -292,6 +293,27 @@ function PromiseStrip() {
   );
 }
 
+function PopularShelf() {
+  const popular = products.slice(0, 3);
+  return (
+    <section className="popular-section section-shell" aria-labelledby="popular-title">
+      <div className="popular-heading">
+        <div><span className="eyebrow">CURADORIA DA SEMANA</span><h2 id="popular-title">Os mais <em>populares.</em></h2></div>
+        <p>Comece pelas leituras que mais despertam interesse na coleção — escolhidas para diferentes momentos da vida.</p>
+      </div>
+      <div className="popular-grid">
+        {popular.map((product, index) => (
+          <a className="popular-card" href="#colecao" key={product.title}>
+            <span className="popular-rank">0{index + 1}</span>
+            <div className={`popular-art ${product.panel}`}><img src={product.image} alt={`Capa de ${product.title}`} /></div>
+            <div className="popular-info"><span className="eyebrow">{product.category}</span><strong>{product.title}</strong><span>Ver na coleção <ArrowRight size={13} /></span></div>
+          </a>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 function Testimonials() {
   return (
     <>
@@ -348,6 +370,11 @@ function LeadCapture() {
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
+  const normalizedSearch = searchTerm.trim().toLocaleLowerCase("pt-BR");
+  const filteredProducts = normalizedSearch
+    ? products.filter((product) => [product.title, product.category, product.description, ...product.bullets].join(" ").toLocaleLowerCase("pt-BR").includes(normalizedSearch))
+    : products;
   return (
     <main>
       <a className="skip-link" href="#colecao">Pular para a coleção</a>
@@ -357,6 +384,11 @@ export default function Home() {
         <nav className={menuOpen ? "open" : ""} aria-label="Navegação principal">
           <a href="#colecao" onClick={() => setMenuOpen(false)}>Coleção</a><a href="#como-funciona" onClick={() => setMenuOpen(false)}>Como funciona</a><a href="#duvidas" onClick={() => setMenuOpen(false)}>Dúvidas</a>
         </nav>
+        <form className="header-search" role="search" onSubmit={(event) => event.preventDefault()}>
+          <Search size={15} aria-hidden="true" />
+          <input aria-label="Buscar e-book na coleção" type="search" placeholder="Buscar e-book" value={searchTerm} onChange={(event) => setSearchTerm(event.target.value)} />
+          {searchTerm && <button type="button" aria-label="Limpar busca" onClick={() => setSearchTerm("")}>×</button>}
+        </form>
         <a className="header-contact" href={whatsapp} target="_blank" rel="noreferrer"><MessageCircle size={15} /> Falar com a gente</a>
         <button className="menu-button" type="button" aria-label={menuOpen ? "Fechar menu" : "Abrir menu"} aria-expanded={menuOpen} onClick={() => setMenuOpen((value) => !value)}>{menuOpen ? <X /> : <Menu />}</button>
       </header>
@@ -367,10 +399,12 @@ export default function Home() {
         <HeroArt />
       </section>
       <PromiseStrip />
+      <PopularShelf />
 
       <section className="collection section-shell" id="colecao">
         <SectionHeading eyebrow="A COLEÇÃO DIGITALQUINTINO" body="Doze leituras para momentos diferentes. Você escolhe o tema, conhece a proposta e segue para a Hotmart quando estiver pronto.">Escolha a próxima <em>página.</em></SectionHeading>
-        <div className="product-grid">{products.map((product) => <ProductCard product={product} key={product.title} />)}</div>
+        <div className="collection-toolbar"><span aria-live="polite">{normalizedSearch ? `${filteredProducts.length} resultado${filteredProducts.length === 1 ? "" : "s"} para “${searchTerm}”` : "12 e-books para escolher"}</span>{normalizedSearch && <button type="button" onClick={() => setSearchTerm("")}>Limpar busca</button>}</div>
+        {filteredProducts.length > 0 ? <div className="product-grid">{filteredProducts.map((product) => <ProductCard product={product} key={product.title} />)}</div> : <div className="empty-results"><Search size={24} /><strong>Nenhum e-book encontrado</strong><p>Tente buscar por outro tema, título ou palavra-chave.</p><button className="button button-outline" type="button" onClick={() => setSearchTerm("")}>Ver toda a coleção</button></div>}
         <Testimonials />
       </section>
 
