@@ -34,7 +34,6 @@ const products = [
     href: "https://go.hotmart.com/E107584023H",
     message:
       "Olá! Quero saber mais sobre o e-book “Vá cuidar da sua vida”. Vi na DigitalQuintino e gostaria de receber ajuda para finalizar meu pedido.",
-    price: "R$ 29,90",
     details: {
       subtitle: "A frase que parece um corte. Mas pode ser o começo da sua liberdade.",
       author: "Pablo Marçal",
@@ -266,7 +265,7 @@ function ProductCard({ product }: { product: (typeof products)[number] }) {
         )}
         <div className="card-bottom">
           <span className="micro-label">CONTEÚDO DIGITAL</span>
-          <strong>{"price" in product ? product.price : "Acesso"} <span>{"price" in product ? "· acesso imediato" : "pela Hotmart"}</span></strong>
+          <strong>Acesso <span>imediato pela Hotmart</span></strong>
           <div className="card-actions">
             <a className="button button-coral" href={product.href} target="_blank" rel="noreferrer">Conhecer o e-book <ArrowRight size={14} /></a>
             <a className="card-whatsapp" href={contactHref} target="_blank" rel="noreferrer"><MessageCircle size={14} /> Quero tirar uma dúvida sobre este livro</a>
