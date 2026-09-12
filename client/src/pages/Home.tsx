@@ -163,7 +163,7 @@ const products = [
     image: `${STORAGE}sete-capa_04872a83.jpg`,
     imageClass: "portrait",
     panel: "midnight",
-    href: "https://pay.hotmart.com/T107544097M",
+    href: "https://go.hotmart.com/T107544097M",
     message:
       "Olá! Quero saber mais sobre o e-book “As 7 Leis Espirituais do Sucesso”. Vi na DigitalQuintino e gostaria de receber ajuda para finalizar meu pedido.",
   },
@@ -177,7 +177,7 @@ const products = [
     image: `${STORAGE}quebrando-o-habito-cover_771e133b.svg`,
     imageClass: "portrait",
     panel: "stone",
-    href: "https://pay.hotmart.com/U107546962B",
+    href: "https://go.hotmart.com/U107546962B",
     message:
       "Olá! Quero saber mais sobre o e-book “Quebrando o Hábito de Ser Você Mesmo”. Vi na DigitalQuintino e gostaria de receber ajuda para finalizar meu pedido.",
   },
