@@ -22,6 +22,27 @@ const whatsapp =
 
 const products = [
   {
+    tag: "NOVO NA COLEÇÃO",
+    category: "RESPONSABILIDADE PESSOAL",
+    title: "Vá cuidar da sua vida",
+    description:
+      "Um livro direto, provocador e sem anestesia para quem cansou de esperar a vida acontecer. Um convite para sair do ruído e assumir o comando da própria história.",
+    bullets: ["31 confrontos para transformar consciência em atitude", "Exercícios práticos para recuperar foco e clareza", "Leitura digital em português com acesso imediato"],
+    image: `${STORAGE}vacuidar-cover_c061caad.jpg`,
+    imageClass: "portrait",
+    panel: "midnight",
+    href: "https://go.hotmart.com/E107584023H",
+    message:
+      "Olá! Quero saber mais sobre o e-book “Vá cuidar da sua vida”. Vi na DigitalQuintino e gostaria de receber ajuda para finalizar meu pedido.",
+    price: "R$ 29,90",
+    details: {
+      subtitle: "A frase que parece um corte. Mas pode ser o começo da sua liberdade.",
+      author: "Pablo Marçal",
+      takeaways: ["Identificar os padrões de autossabotagem", "Recuperar energia, foco e clareza para decidir", "Parar de gastar sua vida cuidando do que não é seu", "Transformar desconforto em combustível para agir", "Construir uma relação mais adulta com seus desejos", "Sair da espera e assumir o comando da própria história"],
+      chapters: ["Onde tudo começou", "O seu maior inimigo", "A prosperidade é natural", "Bloqueios emocionais", "Seja o seu próprio coach", "A arte de ser ridículo", "Vá para a guerra!", "Máscara social", "O leme do navio", "O que fazer agora?"],
+    },
+  },
+  {
     tag: "MAIS ACOLHEDOR",
     category: "GUIA PRÁTICO PARA PAIS",
     title: "Ensinando a Criança a Orar",
@@ -178,6 +199,7 @@ const products = [
 ];
 
 const readingNotes = [
+  ["Vá cuidar da sua vida", "Um chamado para assumir o comando"],
   ["Ensinando a Criança a Orar", "Uma leitura para compartilhar em família"],
   ["A Paz do Diabo", "Reflexões para levar com você"],
   ["Os 5 Princípios do Filho Pródigo", "Um caminho de volta ao essencial"],
@@ -229,9 +251,22 @@ function ProductCard({ product }: { product: (typeof products)[number] }) {
             <li key={bullet}><Check size={13} /> {bullet}</li>
           ))}
         </ul>
+        {"details" in product && product.details && (
+          <details className="product-more">
+            <summary>Ver conteúdo completo <ChevronDown size={14} /></summary>
+            <div className="product-more-body">
+              <p className="product-subtitle">{product.details.subtitle}</p>
+              <p><strong>Autor:</strong> {product.details.author}</p>
+              <span className="product-more-label">O que você leva</span>
+              <ul>{product.details.takeaways.map((item) => <li key={item}><Check size={12} /> {item}</li>)}</ul>
+              <span className="product-more-label">Capítulos</span>
+              <ol>{product.details.chapters.map((chapter) => <li key={chapter}>{chapter}</li>)}</ol>
+            </div>
+          </details>
+        )}
         <div className="card-bottom">
           <span className="micro-label">CONTEÚDO DIGITAL</span>
-          <strong>Acesso <span>pela Hotmart</span></strong>
+          <strong>{"price" in product ? product.price : "Acesso"} <span>{"price" in product ? "· acesso imediato" : "pela Hotmart"}</span></strong>
           <div className="card-actions">
             <a className="button button-coral" href={product.href} target="_blank" rel="noreferrer">Conhecer o e-book <ArrowRight size={14} /></a>
             <a className="card-whatsapp" href={contactHref} target="_blank" rel="noreferrer"><MessageCircle size={14} /> Quero tirar uma dúvida sobre este livro</a>
@@ -335,7 +370,7 @@ export default function Home() {
       <PromiseStrip />
 
       <section className="collection section-shell" id="colecao">
-        <SectionHeading eyebrow="A COLEÇÃO DIGITALQUINTINO" body="Sete leituras para momentos diferentes. Você escolhe o tema, conhece a proposta e segue para a Hotmart quando estiver pronto.">Escolha a próxima <em>página.</em></SectionHeading>
+        <SectionHeading eyebrow="A COLEÇÃO DIGITALQUINTINO" body="Doze leituras para momentos diferentes. Você escolhe o tema, conhece a proposta e segue para a Hotmart quando estiver pronto.">Escolha a próxima <em>página.</em></SectionHeading>
         <div className="product-grid">{products.map((product) => <ProductCard product={product} key={product.title} />)}</div>
         <Testimonials />
       </section>
