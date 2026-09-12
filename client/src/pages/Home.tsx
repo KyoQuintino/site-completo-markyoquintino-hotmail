@@ -191,7 +191,7 @@ const products = [
     image: `${STORAGE}10-sucos-detox-cover_05ce5628.svg`,
     imageClass: "portrait",
     panel: "green",
-    href: "https://pay.hotmart.com/V107548340T",
+    href: "https://go.hotmart.com/F107560667W",
     message:
       "Olá! Quero saber mais sobre o e-book “10 Sucos Detox Exterminadores de Gordura”. Vi na DigitalQuintino e gostaria de receber ajuda para finalizar meu pedido.",
   },
