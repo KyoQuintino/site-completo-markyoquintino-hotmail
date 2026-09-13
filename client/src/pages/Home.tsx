@@ -196,6 +196,26 @@ const products = [
     message:
       "Olá! Quero saber mais sobre o e-book “10 Sucos Detox Exterminadores de Gordura”. Vi na DigitalQuintino e gostaria de receber ajuda para finalizar meu pedido.",
   },
+  {
+    tag: "LEITURA CRÍTICA",
+    category: "FÉ, CULTURA E PENSAMENTO",
+    title: "Guerra Cultural",
+    description:
+      "Uma leitura cristã e conservadora sobre marxismo cultural, Gramsci, comunismo, política e os conflitos que atravessam a cultura.",
+    bullets: ["Entenda conceitos e conecte os pontos", "Guia rápido, mapa de leitura e perguntas de reflexão", "Acesso digital imediato pela Hotmart"],
+    image: `${STORAGE}guerra-cultural-cover_b0b7f7ae.jpg`,
+    imageClass: "portrait",
+    panel: "charcoal",
+    href: "https://go.hotmart.com/N107588055G",
+    message:
+      "Olá! Quero saber mais sobre o e-book “Guerra Cultural”. Vi na DigitalQuintino e gostaria de receber ajuda para finalizar meu pedido.",
+    details: {
+      subtitle: "Leia, entenda e reflita sobre as ideias que moldam o nosso tempo.",
+      author: "Akiria Patrícia, William Fabian, Juliano Marçal, Cristovam E. Santo e Pablo Marçal",
+      takeaways: ["Uma introdução organizada a marxismo cultural, gramscismo e hegemonia", "Conexões entre política, cultura, educação, mídia, família e religião", "Um ponto de partida para comparar fontes e formar sua própria opinião", "Capítulos sobre história, filosofia, instituições, fé e cultura"],
+      chapters: ["Os filhos de Caim", "Gramsci: o estrategista", "Uma breve história do comunismo", "Como funciona o marxismo cultural", "O Estado e a cultura", "O idioma do politicamente correto"],
+    },
+  },
 ];
 
 const readingNotes = [
@@ -211,6 +231,7 @@ const readingNotes = [
   ["As 7 Leis Espirituais do Sucesso", "Consciência, propósito e prosperidade"],
   ["Quebrando o Hábito de Ser Você Mesmo", "Um novo ponto de partida"],
   ["10 Sucos Detox Exterminadores de Gordura", "Mais sabor, mais leveza, mais você"],
+  ["Guerra Cultural", "Leia, entenda e reflita"],
 ];
 
 function Brand() {
@@ -402,8 +423,8 @@ export default function Home() {
       <PopularShelf />
 
       <section className="collection section-shell" id="colecao">
-        <SectionHeading eyebrow="A COLEÇÃO DIGITALQUINTINO" body="Doze leituras para momentos diferentes. Você escolhe o tema, conhece a proposta e segue para a Hotmart quando estiver pronto.">Escolha a próxima <em>página.</em></SectionHeading>
-        <div className="collection-toolbar"><span aria-live="polite">{normalizedSearch ? `${filteredProducts.length} resultado${filteredProducts.length === 1 ? "" : "s"} para “${searchTerm}”` : "12 e-books para escolher"}</span>{normalizedSearch && <button type="button" onClick={() => setSearchTerm("")}>Limpar busca</button>}</div>
+        <SectionHeading eyebrow="A COLEÇÃO DIGITALQUINTINO" body="Treze leituras para momentos diferentes. Você escolhe o tema, conhece a proposta e segue para a Hotmart quando estiver pronto.">Escolha a próxima <em>página.</em></SectionHeading>
+        <div className="collection-toolbar"><span aria-live="polite">{normalizedSearch ? `${filteredProducts.length} resultado${filteredProducts.length === 1 ? "" : "s"} para “${searchTerm}”` : `${products.length} e-books para escolher`}</span>{normalizedSearch && <button type="button" onClick={() => setSearchTerm("")}>Limpar busca</button>}</div>
         {filteredProducts.length > 0 ? <div className="product-grid">{filteredProducts.map((product) => <ProductCard product={product} key={product.title} />)}</div> : <div className="empty-results"><Search size={24} /><strong>Nenhum e-book encontrado</strong><p>Tente buscar por outro tema, título ou palavra-chave.</p><button className="button button-outline" type="button" onClick={() => setSearchTerm("")}>Ver toda a coleção</button></div>}
         <Testimonials />
       </section>
