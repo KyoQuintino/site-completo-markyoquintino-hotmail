@@ -216,6 +216,26 @@ const products = [
       chapters: ["Os filhos de Caim", "Gramsci: o estrategista", "Uma breve história do comunismo", "Como funciona o marxismo cultural", "O Estado e a cultura", "O idioma do politicamente correto"],
     },
   },
+  {
+    tag: "PARA PEQUENOS CORAÇÕES",
+    category: "FÉ EM FAMÍLIA · INFÂNCIA",
+    title: "Jesus Ama as Crianças",
+    description:
+      "Uma jornada de fé para viver em família, com histórias, imagens e atividades que transformam momentos simples em conversas sobre amor, cuidado e esperança.",
+    bullets: ["32 páginas de descobertas", "Leitura guiada com atividades para conversar juntos", "Material para famílias, ministério infantil e educadores"],
+    image: `${STORAGE}jesusbook-cover_09389533.jpg`,
+    imageClass: "portrait",
+    panel: "sunny",
+    href: "https://go.hotmart.com/V107625668R",
+    message:
+      "Olá! Quero saber mais sobre o e-book “Jesus Ama as Crianças”. Vi na DigitalQuintino e gostaria de receber ajuda para finalizar meu pedido.",
+    details: {
+      subtitle: "Pequenas verdades. Grandes sementes para uma fé viva.",
+      author: "DigitalQuintino",
+      takeaways: ["Descobrir quem é Jesus e por que Ele ama as crianças", "Entender o valor da pureza, da confiança e da esperança", "Aprender que cuidar e proteger também são formas de amar", "Criar um momento especial de leitura e conexão em família"],
+      chapters: ["Uma jornada de fé em família", "O amor de Jesus", "Histórias que viram conversa", "Atividades para viver a mensagem", "Pequenas verdades, grandes sementes"],
+    },
+  },
 ];
 
 const readingNotes = [
@@ -232,6 +252,7 @@ const readingNotes = [
   ["Quebrando o Hábito de Ser Você Mesmo", "Um novo ponto de partida"],
   ["10 Sucos Detox Exterminadores de Gordura", "Mais sabor, mais leveza, mais você"],
   ["Guerra Cultural", "Leia, entenda e reflita"],
+  ["Jesus Ama as Crianças", "Uma jornada de fé em família"],
 ];
 
 function Brand() {
@@ -423,7 +444,7 @@ export default function Home() {
       <PopularShelf />
 
       <section className="collection section-shell" id="colecao">
-        <SectionHeading eyebrow="A COLEÇÃO DIGITALQUINTINO" body="Treze leituras para momentos diferentes. Você escolhe o tema, conhece a proposta e segue para a Hotmart quando estiver pronto.">Escolha a próxima <em>página.</em></SectionHeading>
+        <SectionHeading eyebrow="A COLEÇÃO DIGITALQUINTINO" body="Quatorze leituras para momentos diferentes. Você escolhe o tema, conhece a proposta e segue para a Hotmart quando estiver pronto.">Escolha a próxima <em>página.</em></SectionHeading>
         <div className="collection-toolbar"><span aria-live="polite">{normalizedSearch ? `${filteredProducts.length} resultado${filteredProducts.length === 1 ? "" : "s"} para “${searchTerm}”` : `${products.length} e-books para escolher`}</span>{normalizedSearch && <button type="button" onClick={() => setSearchTerm("")}>Limpar busca</button>}</div>
         {filteredProducts.length > 0 ? <div className="product-grid">{filteredProducts.map((product) => <ProductCard product={product} key={product.title} />)}</div> : <div className="empty-results"><Search size={24} /><strong>Nenhum e-book encontrado</strong><p>Tente buscar por outro tema, título ou palavra-chave.</p><button className="button button-outline" type="button" onClick={() => setSearchTerm("")}>Ver toda a coleção</button></div>}
         <Testimonials />

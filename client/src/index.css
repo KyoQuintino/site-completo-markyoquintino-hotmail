@@ -189,3 +189,4 @@ footer { width: min(1176px, calc(100% - 116px)); min-height: 190px; margin: 0 au
   .header-search, .popular-card, .popular-art img, .popular-info > span:last-child svg, .card-actions .button::before, .card-actions .button svg { transition: none !important; }
 }
 .card-visual.charcoal { background: #2a2a27; }
+.card-visual.sunny { background: #f6d778; }
