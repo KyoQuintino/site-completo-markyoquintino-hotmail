@@ -1,7 +1,6 @@
 import { FormEvent, useState } from "react";
 import {
   ArrowRight,
-  BookOpen,
   Check,
   ChevronDown,
   Heart,
@@ -259,24 +258,6 @@ const products = [
   },
 ];
 
-const readingNotes = [
-  ["Vá cuidar da sua vida", "Um chamado para assumir o comando"],
-  ["Ensinando a Criança a Orar", "Uma leitura para compartilhar em família"],
-  ["A Paz do Diabo", "Reflexões para levar com você"],
-  ["Os 5 Princípios do Filho Pródigo", "Um caminho de volta ao essencial"],
-  ["Detox Perfeito", "Hábitos leves, onde você estiver"],
-  ["A Bíblia que Você Não Leu", "Perguntas para olhar a fé com mais clareza"],
-  ["METANOIA", "Um capítulo de cada vez"],
-  ["Antimedo", "O próximo movimento começa agora"],
-  ["Sai do Caixão", "26 princípios para ativar"],
-  ["As 7 Leis Espirituais do Sucesso", "Consciência, propósito e prosperidade"],
-  ["Quebrando o Hábito de Ser Você Mesmo", "Um novo ponto de partida"],
-  ["10 Sucos Detox Exterminadores de Gordura", "Mais sabor, mais leveza, mais você"],
-  ["Guerra Cultural", "Leia, entenda e reflita"],
-  ["Jesus Ama as Crianças", "Uma jornada de fé em família"],
-  ["O Código Secreto da Mente Masculina", "Diálogo, confiança e parceria"],
-];
-
 function Brand() {
   return (
     <span className="brand" aria-label="DigitalQuintino">
@@ -471,10 +452,6 @@ export default function Home() {
         <div className="collection-toolbar"><span aria-live="polite">{normalizedSearch ? `${filteredProducts.length} resultado${filteredProducts.length === 1 ? "" : "s"} para “${searchTerm}”` : `${products.length} e-books para escolher`}</span>{normalizedSearch && <button type="button" onClick={() => setSearchTerm("")}>Limpar busca</button>}</div>
         {filteredProducts.length > 0 ? <div className="product-grid">{filteredProducts.map((product) => <ProductCard product={product} key={product.title} />)}</div> : <div className="empty-results"><Search size={24} /><strong>Nenhum e-book encontrado</strong><p>Tente buscar por outro tema, título ou palavra-chave.</p><button className="button button-outline" type="button" onClick={() => setSearchTerm("")}>Ver toda a coleção</button></div>}
         <Testimonials />
-      </section>
-
-      <section className="reading-section">
-        <div className="section-shell reading-shell"><SectionHeading eyebrow="ACESSO QUE ACOMPANHA VOCÊ" body="Seja no tablet durante uma pausa ou no celular a caminho de casa, seus e-books estão sempre por perto — prontos para o seu próximo momento de inspiração.">Leia onde <em>estiver.</em></SectionHeading><div className="reading-grid">{readingNotes.map(([title, note], index) => <div className="reading-item" key={title}><span className="reading-number">0{index + 1}</span><div><strong>{title}</strong><span>{note}</span></div><BookOpen size={20} /></div>)}</div><a className="reading-feature-link" href="https://pay.hotmart.com/H107627067J" target="_blank" rel="noreferrer"><span><small>LEITURA EM DESTAQUE</small><strong>Conheça O Código Secreto da Mente Masculina</strong></span><ArrowRight size={17} /></a></div>
       </section>
 
       <section className="feature-section" id="como-funciona"><div className="feature-image"><div><span>UM INTERVALO TAMBÉM É PRODUTIVIDADE</span><strong>Abra espaço para o que importa.</strong></div></div><div className="feature-copy"><span className="eyebrow">MAIS QUE UM DOWNLOAD</span><h2>Leituras para acompanhar suas <em>fases.</em></h2><p>Na DigitalQuintino, cada e-book nasce de uma pergunta que muita gente carrega em silêncio. Por isso, você encontra conteúdo claro, acolhedor e aplicável — sem complicação e sem promessas vazias.</p><div className="steps"><div><span>01</span><strong>Escolha o tema que conversa com você agora.</strong></div><div><span>02</span><strong>Compre pela Hotmart em poucos passos.</strong></div><div><span>03</span><strong>Receba o acesso e comece no seu ritmo.</strong></div></div><a className="text-link dark-link" href={whatsapp} target="_blank" rel="noreferrer"><MessageCircle size={16} /> Fale com a DigitalQuintino <ArrowRight size={14} /></a></div></section>
