@@ -236,6 +236,27 @@ const products = [
       chapters: ["Uma jornada de fé em família", "O amor de Jesus", "Histórias que viram conversa", "Atividades para viver a mensagem", "Pequenas verdades, grandes sementes"],
     },
   },
+  {
+    tag: "NOVO NA COLEÇÃO",
+    category: "CASAMENTO, FÉ E CONEXÃO",
+    title: "O Código Secreto da Mente Masculina",
+    description:
+      "Um guia cristão, prático e sensível para mulheres que desejam restaurar diálogo, confiança e parceria no casamento, com reflexões e passos possíveis para a vida real.",
+    bullets: ["49 páginas de conteúdo educativo e devocional", "7 capítulos + plano de ação guiado para 30 dias", "Leitura digital com acesso imediato pela Hotmart"],
+    image: `${STORAGE}codigo-mente-cover-01_4aebd8e5.jpg`,
+    imageClass: "portrait",
+    panel: "warm",
+    href: "https://pay.hotmart.com/H107627067J",
+    message:
+      "Olá! Quero saber mais sobre o e-book “O Código Secreto da Mente Masculina”. Vi na DigitalQuintino e gostaria de receber ajuda para finalizar meu pedido.",
+    details: {
+      subtitle: "Um caminho de volta ao diálogo, à confiança e à parceria.",
+      author: "DigitalQuintino",
+      gallery: [`${STORAGE}hero-couple_96623ad4.png`, `${STORAGE}connection-detail_e71ac3d2.png`],
+      takeaways: ["Compreender padrões de comunicação e conexão no casamento", "Reconhecer comportamentos que podem enfraquecer a relação", "Praticar conversas mais claras, respeitosas e construtivas", "Reacender cuidado e intimidade respeitando limites e consentimento", "Usar fé, limites e proteção como parte de uma relação saudável", "Aplicar um plano de prática progressivo ao longo de 30 dias"],
+      chapters: ["A verdade sobre a crise conjugal", "Padrões de atenção e conexão", "Comportamentos que enfraquecem a relação", "Comunicação que aproxima", "O resgate da intimidade", "Fé, limites e proteção da relação", "Plano de ação de 30 dias"],
+    },
+  },
 ];
 
 const readingNotes = [
@@ -253,6 +274,7 @@ const readingNotes = [
   ["10 Sucos Detox Exterminadores de Gordura", "Mais sabor, mais leveza, mais você"],
   ["Guerra Cultural", "Leia, entenda e reflita"],
   ["Jesus Ama as Crianças", "Uma jornada de fé em família"],
+  ["O Código Secreto da Mente Masculina", "Diálogo, confiança e parceria"],
 ];
 
 function Brand() {
@@ -299,6 +321,7 @@ function ProductCard({ product }: { product: (typeof products)[number] }) {
             <div className="product-more-body">
               <p className="product-subtitle">{product.details.subtitle}</p>
               <p><strong>Autor:</strong> {product.details.author}</p>
+              {"gallery" in product.details && product.details.gallery && <div className="product-gallery">{product.details.gallery.map((image, index) => <img key={image} src={image} alt={`${product.title} — imagem editorial ${index + 1}`} />)}</div>}
               <span className="product-more-label">O que você leva</span>
               <ul>{product.details.takeaways.map((item) => <li key={item}><Check size={12} /> {item}</li>)}</ul>
               <span className="product-more-label">Capítulos</span>
@@ -444,7 +467,7 @@ export default function Home() {
       <PopularShelf />
 
       <section className="collection section-shell" id="colecao">
-        <SectionHeading eyebrow="A COLEÇÃO DIGITALQUINTINO" body="Quatorze leituras para momentos diferentes. Você escolhe o tema, conhece a proposta e segue para a Hotmart quando estiver pronto.">Escolha a próxima <em>página.</em></SectionHeading>
+        <SectionHeading eyebrow="A COLEÇÃO DIGITALQUINTINO" body="Quinze leituras para momentos diferentes. Você escolhe o tema, conhece a proposta e segue para a Hotmart quando estiver pronto.">Escolha a próxima <em>página.</em></SectionHeading>
         <div className="collection-toolbar"><span aria-live="polite">{normalizedSearch ? `${filteredProducts.length} resultado${filteredProducts.length === 1 ? "" : "s"} para “${searchTerm}”` : `${products.length} e-books para escolher`}</span>{normalizedSearch && <button type="button" onClick={() => setSearchTerm("")}>Limpar busca</button>}</div>
         {filteredProducts.length > 0 ? <div className="product-grid">{filteredProducts.map((product) => <ProductCard product={product} key={product.title} />)}</div> : <div className="empty-results"><Search size={24} /><strong>Nenhum e-book encontrado</strong><p>Tente buscar por outro tema, título ou palavra-chave.</p><button className="button button-outline" type="button" onClick={() => setSearchTerm("")}>Ver toda a coleção</button></div>}
         <Testimonials />
@@ -464,7 +487,7 @@ export default function Home() {
 
       <section className="faq-section section-shell" id="duvidas"><SectionHeading centered eyebrow="TUDO BEM PERGUNTAR" body="Se ainda ficou alguma dúvida, fale com a gente pelo WhatsApp. A mensagem já vai com o resumo do e-book escolhido.">Dúvidas <em>frequentes.</em></SectionHeading><div className="faq-list"><details open><summary>Como recebo meu e-book após a compra? <ChevronDown size={18} /></summary><p>Após a confirmação do pagamento, a Hotmart envia o acesso para o seu e-mail. Você pode começar a ler imediatamente.</p></details><details><summary>Posso ler no celular ou tablet? <ChevronDown size={18} /></summary><p>Sim. Os arquivos são digitais e foram pensados para funcionar no celular, tablet, computador e leitores digitais.</p></details><details><summary>Existe alguma assinatura mensal? <ChevronDown size={18} /></summary><p>Não. O pagamento é único e o acesso ao material comprado é vitalício.</p></details><details><summary>Como funciona a garantia de 7 dias? <ChevronDown size={18} /></summary><p>Você tem 7 dias para conhecer o material. Se não fizer sentido para você, pode solicitar o reembolso dentro desse prazo.</p></details><details><summary>Preciso escolher um e-book específico agora? <ChevronDown size={18} /></summary><p>Não. Você pode explorar a coleção e conversar conosco antes de decidir.</p></details></div></section>
 
-      <footer><div className="footer-brand"><a className="brand-link" href="#inicio"><Brand /></a><p>Leituras para viver com mais presença.</p></div><div className="footer-links"><a href="#colecao">Coleção</a><a href="#como-funciona">Sobre</a><a href="#duvidas">Dúvidas</a><a href={whatsapp} target="_blank" rel="noreferrer">WhatsApp</a></div><div className="footer-legal">© 2026 DigitalQuintino · Conteúdo digital</div></footer>
+      <footer><div className="footer-brand"><a className="brand-link" href="#inicio"><Brand /></a><p>Leituras para viver com mais presença.</p></div><div className="footer-links"><a href="#colecao">Coleção</a><a href="#como-funciona">Sobre</a><a href="#duvidas">Dúvidas</a><a href="/arquivos">Área de arquivos</a><a href={whatsapp} target="_blank" rel="noreferrer">WhatsApp</a></div><div className="footer-legal">© 2026 DigitalQuintino · Conteúdo digital</div></footer>
       <a className="whatsapp-float" href={whatsapp} target="_blank" rel="noreferrer" aria-label="Falar no WhatsApp"><MessageCircle size={24} /></a>
     </main>
   );

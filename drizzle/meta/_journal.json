@@ -1,0 +1,13 @@
+{
+  "version": "7",
+  "dialect": "mysql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1789505168802,
+      "tag": "0000_fat_edwin_jarvis",
+      "breakpoints": true
+    }
+  ]
+}
