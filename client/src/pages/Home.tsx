@@ -266,7 +266,7 @@ const products = [
     image: `${STORAGE}ebook-cover_7ee154ca.jpg`,
     imageClass: "portrait",
     panel: "charcoal",
-    href: "https://pay.hotmart.com/U107657954K?checkoutMode=2",
+    href: "https://go.hotmart.com/U107657954K",
     message:
       "Olá! Quero saber mais sobre o e-book “A Sutil Arte de Ligar o Foda-se”. Vi na DigitalQuintino e gostaria de receber ajuda para finalizar meu pedido.",
     details: {
