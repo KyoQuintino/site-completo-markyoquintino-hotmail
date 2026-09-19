@@ -256,6 +256,27 @@ const products = [
       chapters: ["A verdade sobre a crise conjugal", "Padrões de atenção e conexão", "Comportamentos que enfraquecem a relação", "Comunicação que aproxima", "O resgate da intimidade", "Fé, limites e proteção da relação", "Plano de ação de 30 dias"],
     },
   },
+  {
+    tag: "LEITURA PROVOCADORA",
+    category: "CLAREZA, LIMITES E ESCOLHAS",
+    title: "A Sutil Arte de Ligar o Foda-se",
+    description:
+      "Uma leitura direta para escolher melhor o que merece sua energia, estabelecer limites e reduzir o ruído das expectativas externas.",
+    bullets: ["9 capítulos sobre escolhas e responsabilidade", "Reflexões sobre felicidade, fracasso e limites", "Leitura digital em português com acesso imediato"],
+    image: `${STORAGE}ebook-cover_7ee154ca.jpg`,
+    imageClass: "portrait",
+    panel: "charcoal",
+    href: "https://pay.hotmart.com/U107657954K?checkoutMode=2",
+    message:
+      "Olá! Quero saber mais sobre o e-book “A Sutil Arte de Ligar o Foda-se”. Vi na DigitalQuintino e gostaria de receber ajuda para finalizar meu pedido.",
+    details: {
+      subtitle: "Menos ruído. Mais clareza para escolher o que realmente importa.",
+      author: "Mark Manson — confirme a licença de distribuição antes de publicar",
+      gallery: [`${STORAGE}ebook-hero_4a3cfa35.jpg`],
+      takeaways: ["Identificar o que é ruído e o que realmente merece sua atenção", "Escolher quais problemas valem seu esforço", "Estabelecer limites sem precisar agradar todo mundo", "Assumir responsabilidade sem culpa e sem drama", "Agir mesmo quando a certeza absoluta não apareceu"],
+      chapters: ["Nem tente", "A felicidade é um problema", "Você não é especial", "O valor do sofrimento", "Você sempre faz escolhas", "Você está errado", "Fracassar é seguir em frente", "A importância de dizer não", "... e aí você morre"],
+    },
+  },
 ];
 
 function Brand() {
@@ -448,7 +469,7 @@ export default function Home() {
       <PopularShelf />
 
       <section className="collection section-shell" id="colecao">
-        <SectionHeading eyebrow="A COLEÇÃO DIGITALQUINTINO" body="Quinze leituras para momentos diferentes. Você escolhe o tema, conhece a proposta e segue para a Hotmart quando estiver pronto.">Escolha a próxima <em>página.</em></SectionHeading>
+        <SectionHeading eyebrow="A COLEÇÃO DIGITALQUINTINO" body="Dezesseis leituras para momentos diferentes. Você escolhe o tema, conhece a proposta e segue para a Hotmart quando estiver pronto.">Escolha a próxima <em>página.</em></SectionHeading>
         <div className="collection-toolbar"><span aria-live="polite">{normalizedSearch ? `${filteredProducts.length} resultado${filteredProducts.length === 1 ? "" : "s"} para “${searchTerm}”` : `${products.length} e-books para escolher`}</span>{normalizedSearch && <button type="button" onClick={() => setSearchTerm("")}>Limpar busca</button>}</div>
         {filteredProducts.length > 0 ? <div className="product-grid">{filteredProducts.map((product) => <ProductCard product={product} key={product.title} />)}</div> : <div className="empty-results"><Search size={24} /><strong>Nenhum e-book encontrado</strong><p>Tente buscar por outro tema, título ou palavra-chave.</p><button className="button button-outline" type="button" onClick={() => setSearchTerm("")}>Ver toda a coleção</button></div>}
         <Testimonials />
