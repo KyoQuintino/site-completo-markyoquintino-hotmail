@@ -201,3 +201,36 @@ footer { width: min(1176px, calc(100% - 116px)); min-height: 190px; margin: 0 au
 @media (max-width: 620px) { .product-gallery img { height: 92px; } }
 
 .reading-feature-link { display: flex; align-items: center; justify-content: space-between; gap: 18px; margin-top: 30px; padding: 18px 20px; border: 1px solid var(--line); background: rgba(255,253,249,.58); color: var(--ink); transition: transform 180ms var(--ease-out), border-color 180ms ease, background 180ms ease; }.reading-feature-link:hover { transform: translateY(-2px); border-color: var(--coral); background: var(--white); }.reading-feature-link span { display: grid; gap: 6px; }.reading-feature-link small { color: var(--coral); font-size: 9px; font-weight: 800; letter-spacing: 1.5px; }.reading-feature-link strong { font-family: var(--serif); font-size: 20px; font-weight: 500; }.reading-feature-link > svg { color: var(--coral); flex: 0 0 auto; }
+
+/* Discovery and quick-view enhancements */
+.collection-toolbar { display: flex; align-items: end; gap: 18px; margin: -10px 0 25px; padding: 13px 0; border-top: 1px solid #ece1d8; border-bottom: 1px solid #ece1d8; color: var(--muted); font-size: 11px; }
+.collection-toolbar > span { margin-left: auto; }
+.collection-toolbar > button { border: 0; padding: 0; background: transparent; color: var(--coral); cursor: pointer; font-size: 11px; font-weight: 700; }
+.collection-filters { display: flex; align-items: center; gap: 9px; }
+.collection-filters label { color: var(--ink-soft); font-size: 10px; font-weight: 700; }
+.collection-filters select { min-width: 205px; padding: 8px 28px 8px 10px; border: 1px solid #dfcfc3; border-radius: 0; background: var(--white); color: var(--ink); font-size: 10px; outline: 0; }
+.collection-filters select:focus { border-color: var(--coral); box-shadow: 0 0 0 2px rgba(184,95,76,.12); }
+.popular-card-featured { border-color: var(--coral-soft); background: #fffaf4; box-shadow: 0 9px 20px rgba(184,95,76,.11); }
+.popular-card-featured::after { content: "EM DESTAQUE"; position: absolute; top: 9px; right: 9px; z-index: 3; padding: 4px 6px; background: var(--coral); color: #fff; font-size: 7px; font-weight: 700; letter-spacing: .8px; }
+.popular-info > button { display: inline-flex; align-items: center; gap: 5px; width: fit-content; border: 0; padding: 0; background: transparent; color: var(--coral); cursor: pointer; font-size: 9px; font-weight: 700; }
+.popular-info > button svg { transition: transform 160ms ease; }
+.popular-info > button:hover svg { transform: translateX(3px); }
+.quick-view-trigger { width: fit-content; border: 0; border-bottom: 1px solid var(--coral-soft); padding: 0 0 2px; background: transparent; color: var(--coral); cursor: pointer; font-size: 10px; font-weight: 700; transition: color 160ms ease, border-color 160ms ease; }
+.quick-view-trigger:hover { color: var(--ink); border-color: var(--ink); }
+.quick-view-backdrop { position: fixed; inset: 0; z-index: 60; display: grid; place-items: center; padding: 24px; background: rgba(25,35,28,.64); backdrop-filter: blur(4px); animation: quick-view-fade 180ms ease-out both; }
+.quick-view-modal { position: relative; display: grid; grid-template-columns: minmax(210px, .8fr) minmax(0, 1.2fr); width: min(760px, 100%); max-height: min(680px, calc(100vh - 48px)); overflow: auto; background: var(--white); box-shadow: 0 28px 80px rgba(14,24,18,.28); animation: quick-view-rise 220ms var(--ease-out) both; }
+.quick-view-close { position: absolute; top: 12px; right: 12px; z-index: 3; display: grid; place-items: center; width: 32px; height: 32px; border: 1px solid rgba(255,255,255,.55); border-radius: 50%; background: rgba(41,55,45,.72); color: #fff; cursor: pointer; }
+.quick-view-art { min-height: 440px; display: grid; place-items: center; padding: 42px; }
+.quick-view-art.midnight { background: #daddd6; }.quick-view-art.sage { background: #dfe1d5; }.quick-view-art.charcoal { background: #d7d4cb; }.quick-view-art.warm { background: #e8e1d2; }
+.quick-view-art img { width: min(82%, 250px); max-height: 390px; object-fit: contain; filter: drop-shadow(0 16px 12px rgba(43,48,37,.18)); }
+.quick-view-content { padding: 46px 42px 38px; }
+.quick-view-content h2 { margin: 10px 0 15px; font-size: clamp(32px, 4vw, 47px); line-height: .98; }
+.quick-view-description { margin: 0; color: var(--ink-soft); font-size: 13px; line-height: 1.65; }
+.quick-view-bullets { display: grid; gap: 8px; margin: 22px 0; padding: 17px 0; border-top: 1px solid #ece1d8; border-bottom: 1px solid #ece1d8; list-style: none; }
+.quick-view-bullets li { display: flex; gap: 8px; color: var(--ink-soft); font-size: 11px; line-height: 1.4; }.quick-view-bullets svg { flex: 0 0 auto; color: var(--coral); }
+.quick-view-subtitle { margin: 0 0 8px; color: var(--coral); font-family: var(--serif); font-size: 17px; font-style: italic; line-height: 1.2; }.quick-view-author { margin: 0; color: var(--muted); font-size: 10px; }
+.quick-view-gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-top: 16px; }.quick-view-gallery img { width: 100%; height: 86px; object-fit: cover; }
+.quick-view-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }.quick-view-actions .button { font-size: 11px; }
+@keyframes quick-view-fade { from { opacity: 0; } to { opacity: 1; } } @keyframes quick-view-rise { from { opacity: 0; transform: translateY(12px) scale(.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@media (max-width: 760px) { .collection-toolbar { align-items: stretch; flex-wrap: wrap; }.collection-toolbar > span { order: 3; width: 100%; margin-left: 0; }.collection-filters { width: 100%; justify-content: space-between; }.collection-filters select { flex: 1; min-width: 0; }.quick-view-backdrop { padding: 12px; }.quick-view-modal { grid-template-columns: 1fr; max-height: calc(100vh - 24px); }.quick-view-art { min-height: 220px; padding: 26px; }.quick-view-art img { width: 150px; max-height: 220px; }.quick-view-content { padding: 30px 24px 25px; }.quick-view-content h2 { font-size: 36px; }.quick-view-gallery img { height: 64px; } }
+@media (prefers-reduced-motion: reduce) { .quick-view-backdrop, .quick-view-modal { animation: none; } .product-card, .popular-card, .card-cover { transition: none; } }
