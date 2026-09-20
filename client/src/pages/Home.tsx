@@ -277,6 +277,27 @@ const products = [
       chapters: ["Nem tente", "A felicidade é um problema", "Você não é especial", "O valor do sofrimento", "Você sempre faz escolhas", "Você está errado", "Fracassar é seguir em frente", "A importância de dizer não", "... e aí você morre"],
     },
   },
+  {
+    tag: "NOVA PERSPECTIVA",
+    category: "PSICOLOGIA · APRENDIZADO · EVOLUÇÃO",
+    title: "Mindset: A Nova Psicologia do Sucesso",
+    description:
+      "Uma leitura transformadora sobre mentalidade fixa e mentalidade de crescimento, para aprender com desafios, tomar decisões melhores e continuar evoluindo.",
+    bullets: ["Aplicações para vida, carreira e relações", "Reflexões sobre esforço, feedback e aprendizado", "Leitura digital para acompanhar seu ritmo"],
+    image: `${STORAGE}mindset-cover_54ed7b0e.png`,
+    imageClass: "portrait",
+    panel: "midnight",
+    href: "https://pay.hotmart.com/G107687059T?checkoutMode=2",
+    message:
+      "Olá! Quero saber mais sobre o e-book “Mindset: A Nova Psicologia do Sucesso”. Vi na DigitalQuintino e gostaria de receber ajuda para finalizar meu pedido.",
+    details: {
+      subtitle: "Comece pela lente. Deixe o crescimento fazer o resto.",
+      author: "Carol S. Dweck, Ph.D. — edição digital",
+      gallery: [`${STORAGE}mindset-hero_a0608163.jpg`, `${STORAGE}mindset-social_8ece0b42.jpg`],
+      takeaways: ["Reconhecer a diferença entre mindset fixo e mindset de crescimento", "Interpretar esforço, feedback e erro como parte do aprendizado", "Aplicar a teoria em estudos, carreira, negócios e relações", "Tomar decisões com mais clareza diante de desafios", "Sustentar mudanças práticas com uma mentalidade de evolução"],
+      chapters: ["Os mindsets", "Sucesso, fracasso e esforço", "Aptidão e realização", "Negócios, relacionamentos e educação", "Mudança de mindset"],
+    },
+  },
 ];
 
 function Brand() {
@@ -469,7 +490,7 @@ export default function Home() {
       <PopularShelf />
 
       <section className="collection section-shell" id="colecao">
-        <SectionHeading eyebrow="A COLEÇÃO DIGITALQUINTINO" body="Dezesseis leituras para momentos diferentes. Você escolhe o tema, conhece a proposta e segue para a Hotmart quando estiver pronto.">Escolha a próxima <em>página.</em></SectionHeading>
+        <SectionHeading eyebrow="A COLEÇÃO DIGITALQUINTINO" body="Dezessete leituras para momentos diferentes. Você escolhe o tema, conhece a proposta e segue para a Hotmart quando estiver pronto.">Escolha a próxima <em>página.</em></SectionHeading>
         <div className="collection-toolbar"><span aria-live="polite">{normalizedSearch ? `${filteredProducts.length} resultado${filteredProducts.length === 1 ? "" : "s"} para “${searchTerm}”` : `${products.length} e-books para escolher`}</span>{normalizedSearch && <button type="button" onClick={() => setSearchTerm("")}>Limpar busca</button>}</div>
         {filteredProducts.length > 0 ? <div className="product-grid">{filteredProducts.map((product) => <ProductCard product={product} key={product.title} />)}</div> : <div className="empty-results"><Search size={24} /><strong>Nenhum e-book encontrado</strong><p>Tente buscar por outro tema, título ou palavra-chave.</p><button className="button button-outline" type="button" onClick={() => setSearchTerm("")}>Ver toda a coleção</button></div>}
         <Testimonials />
