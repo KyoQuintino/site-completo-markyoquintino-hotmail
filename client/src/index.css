@@ -234,3 +234,8 @@ footer { width: min(1176px, calc(100% - 116px)); min-height: 190px; margin: 0 au
 @keyframes quick-view-fade { from { opacity: 0; } to { opacity: 1; } } @keyframes quick-view-rise { from { opacity: 0; transform: translateY(12px) scale(.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
 @media (max-width: 760px) { .collection-toolbar { align-items: stretch; flex-wrap: wrap; }.collection-toolbar > span { order: 3; width: 100%; margin-left: 0; }.collection-filters { width: 100%; justify-content: space-between; }.collection-filters select { flex: 1; min-width: 0; }.quick-view-backdrop { padding: 12px; }.quick-view-modal { grid-template-columns: 1fr; max-height: calc(100vh - 24px); }.quick-view-art { min-height: 220px; padding: 26px; }.quick-view-art img { width: 150px; max-height: 220px; }.quick-view-content { padding: 30px 24px 25px; }.quick-view-content h2 { font-size: 36px; }.quick-view-gallery img { height: 64px; } }
 @media (prefers-reduced-motion: reduce) { .quick-view-backdrop, .quick-view-modal { animation: none; } .product-card, .popular-card, .card-cover { transition: none; } }
+
+/* 21 Dias editorial treatment */
+.card-visual.golden { background: #e9ddc6; }
+.popular-art.golden { background: #e9ddc6; }
+.quick-view-art.golden { background: #e9ddc6; }

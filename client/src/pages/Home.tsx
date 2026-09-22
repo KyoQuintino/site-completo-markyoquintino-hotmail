@@ -298,6 +298,27 @@ const products = [
       chapters: ["Os mindsets", "Sucesso, fracasso e esforço", "Aptidão e realização", "Negócios, relacionamentos e educação", "Mudança de mindset"],
     },
   },
+  {
+    tag: "JORNADA DE AUTOCUIDADO",
+    category: "AUTOCONHECIMENTO · BEM-ESTAR",
+    title: "21 Dias",
+    description:
+      "Uma jornada prática de reflexão e autocuidado, organizada para transformar pequenos momentos diante do espelho em uma rotina mais consciente e acolhedora.",
+    bullets: ["21 práticas guiadas para acompanhar no seu ritmo", "Exercícios com espelho, afirmações, diário e meditações", "Leitura digital com acesso imediato pela Hotmart"],
+    image: `${STORAGE}21-dias-cover_8a4064e3.svg`,
+    imageClass: "portrait",
+    panel: "golden",
+    href: "https://go.hotmart.com/R106774018S",
+    message:
+      "Olá! Quero saber mais sobre o e-book “21 Dias”. Vi na DigitalQuintino e gostaria de receber ajuda para finalizar meu pedido.",
+    details: {
+      subtitle: "Um dia de cada vez para olhar para si com mais amor, presença e gentileza.",
+      author: "Louise Hay — confirme os direitos de distribuição antes de publicar",
+      gallery: [`${STORAGE}21-dias-editorial_b14f0464.svg`],
+      takeaways: ["Desenvolver uma relação mais consciente e acolhedora consigo", "Observar padrões de diálogo interior e experimentar afirmações positivas", "Registrar pensamentos, sentimentos, dificuldades e avanços no diário", "Refletir sobre culpa, medo, crítica e ressentimento com mais presença", "Criar uma prática progressiva de autoaceitação, respeito e constância"],
+      chapters: ["Amor-próprio e espelho", "Diálogo interior e afirmações", "Passado, culpa e autocrítica", "Autoestima e aprovação pessoal", "Criança interior e relação com o corpo", "Raiva, medo e presença", "Perdão e relacionamentos", "Estresse, prosperidade e gratidão", "Continuidade da prática"],
+    },
+  },
 ];
 
 type Product = (typeof products)[number];
@@ -422,7 +443,7 @@ function PromiseStrip() {
 }
 
 function PopularShelf({ onQuickView }: { onQuickView: (product: Product) => void }) {
-  const popularTitles = ["Mindset: A Nova Psicologia do Sucesso", "Vá cuidar da sua vida", "Ensinando a Criança a Orar"];
+  const popularTitles = ["Mindset: A Nova Psicologia do Sucesso", "21 Dias", "Vá cuidar da sua vida"];
   const popular = popularTitles.map((title) => products.find((product) => product.title === title)).filter((product): product is Product => Boolean(product));
   return (
     <section className="popular-section section-shell" aria-labelledby="popular-title">
@@ -536,7 +557,7 @@ export default function Home() {
       <PopularShelf onQuickView={setQuickViewProduct} />
 
       <section className="collection section-shell" id="colecao">
-        <SectionHeading eyebrow="A COLEÇÃO DIGITALQUINTINO" body="Dezessete leituras para momentos diferentes. Você escolhe o tema, conhece a proposta e segue para a Hotmart quando estiver pronto.">Escolha a próxima <em>página.</em></SectionHeading>
+        <SectionHeading eyebrow="A COLEÇÃO DIGITALQUINTINO" body="Dezoito leituras para momentos diferentes. Você escolhe o tema, conhece a proposta e segue para a Hotmart quando estiver pronto.">Escolha a próxima <em>página.</em></SectionHeading>
         <div className="collection-toolbar"><div className="collection-filters"><label htmlFor="category-filter">Filtrar por categoria</label><select id="category-filter" value={categoryFilter} onChange={(event) => setCategoryFilter(event.target.value)}>{categories.map((category) => <option key={category}>{category}</option>)}</select></div><span aria-live="polite">{normalizedSearch || categoryFilter !== "Todas as categorias" ? `${filteredProducts.length} resultado${filteredProducts.length === 1 ? "" : "s"}` : `${products.length} e-books para escolher`}</span>{(normalizedSearch || categoryFilter !== "Todas as categorias") && <button type="button" onClick={() => { setSearchTerm(""); setCategoryFilter("Todas as categorias"); }}>Limpar filtros</button>}</div>
         {filteredProducts.length > 0 ? <div className="product-grid">{filteredProducts.map((product) => <ProductCard product={product} onQuickView={setQuickViewProduct} key={product.title} />)}</div> : <div className="empty-results"><Search size={24} /><strong>Nenhum e-book encontrado</strong><p>Tente buscar por outro tema, título ou palavra-chave.</p><button className="button button-outline" type="button" onClick={() => { setSearchTerm(""); setCategoryFilter("Todas as categorias"); }}>Ver toda a coleção</button></div>}
         <Testimonials />
