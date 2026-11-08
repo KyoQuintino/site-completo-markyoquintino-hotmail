@@ -28,6 +28,9 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: pnpm
 
+      - name: Verify toolchain
+        run: node --version && pnpm --version
+
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
